@@ -35,9 +35,13 @@ public class BallController : MonoBehaviour
     private AudioSource sound;
     private bool soundFlag = false;
 
+    public GameObject spawnEffect;
+    public Vector3 spawnOffset;
+
     void Start()
     {
         sound = gameObject.GetComponent<AudioSource>();
+        Instantiate(spawnEffect, transform.position + spawnOffset, transform.rotation);
     }
 
     void OnCollisionEnter2D(Collision2D evt)
